@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<head><title>Horario Estudiantes</title></head>
+<body>
+<div>
+    <h2>Horario de Clases - Estudiantes</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nivel</th>
+                <th>Horario</th>
+                <th>Instructor</th>
+                <th>Estudiantes Inscritos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="clase : ${clases}">
+                <td th:text="${clase.nivel}">Nivel</td>
+                <td th:text="${clase.horario}">Horario</td>
+                <td th:text="${clase.instructor != null ? clase.instructor.nombre : 'Sin asignar'}">Instructor</td>
+                <td>
+                    <ul>
+                        <li th:each="est : ${clase.estudiantes}" th:text="${est.nombre}">Estudiante</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

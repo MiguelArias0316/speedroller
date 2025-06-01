@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<head><title>Registrar Estudiante</title></head>
+<body>
+<div>
+    <h2>Registro de Estudiante</h2>
+    <form th:action="@{/estudiantes/guardar}" th:object="${estudiante}" method="post">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre completo</label>
+            <input type="text" class="form-control" id="nombre" th:field="*{nombre}" required />
+        </div>
+        <div class="mb-3">
+            <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+            <input type="date" class="form-control" id="fechaNacimiento" th:field="*{fechaNacimiento}" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Género</label>
+            <select class="form-select" th:field="*{genero}" required>
+                <option value="">Seleccione</option>
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+                <option value="O">Otro</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="correo" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="correo" th:field="*{correo}" required />
+        </div>
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="tel" class="form-control" id="telefono" th:field="*{telefono}" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+        <a class="btn btn-secondary" th:href="@{/estudiantes}">Cancelar</a>
+    </form>
+</div>
+</body>
+</html>

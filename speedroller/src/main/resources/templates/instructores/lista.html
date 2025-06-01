@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<head><title>Lista de Instructores</title></head>
+<body>
+<div>
+    <h2>Lista de Instructores</h2>
+    <a class="btn btn-primary mb-3" th:href="@{/instructores/nuevo}">Agregar Instructor</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Teléfono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="instructor : ${instructores}">
+                <td th:text="${instructor.nombre}">Nombre</td>
+                <td th:text="${instructor.correo}">Correo</td>
+                <td th:text="${instructor.telefono}">Teléfono</td>
+                <td>
+                    <a class="btn btn-sm btn-warning" th:href="@{|/instructores/editar/${instructor.id}|}">Editar</a>
+                    <a class="btn btn-sm btn-danger" th:href="@{|/instructores/eliminar/${instructor.id}|}"
+                       onclick="return confirm('¿Está seguro?');">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

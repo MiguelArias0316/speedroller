@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<head><title>Editar Instructor</title></head>
+<body>
+<div>
+    <h2>Editar Instructor</h2>
+    <form th:action="@{|/instructores/actualizar/${instructor.id}|}" th:object="${instructor}" method="post">
+        <!-- mismos campos que registro -->
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre completo</label>
+            <input type="text" class="form-control" id="nombre" th:field="*{nombre}" required />
+        </div>
+        <div class="mb-3">
+            <label for="correo" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="correo" th:field="*{correo}" required />
+        </div>
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="tel" class="form-control" id="telefono" th:field="*{telefono}" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a class="btn btn-secondary" th:href="@{/instructores}">Cancelar</a>
+    </form>
+</div>
+</body>
+</html>

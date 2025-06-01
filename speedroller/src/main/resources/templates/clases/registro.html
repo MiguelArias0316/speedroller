@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<head><title>Registrar Clase</title></head>
+<body>
+<div>
+    <h2>Registrar Nueva Clase</h2>
+    <form th:action="@{/clases/guardar}" th:object="${clase}" method="post">
+        <div class="mb-3">
+            <label for="nivel" class="form-label">Nivel</label>
+            <input type="text" class="form-control" id="nivel" th:field="*{nivel}" required />
+        </div>
+        <div class="mb-3">
+            <label for="horario" class="form-label">Horario</label>
+            <input type="text" class="form-control" id="horario" th:field="*{horario}" placeholder="Ej: Lunes 4pm-5pm" required />
+        </div>
+        <div class="mb-3">
+            <label for="instructor" class="form-label">Instructor</label>
+            <select class="form-select" id="instructor" th:field="*{instructor}" required>
+                <option th:each="inst : ${instructores}" 
+                        th:value="${inst}" 
+                        th:text="${inst.nombre}">
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Estudiantes</label>
+            <select class="form-select" multiple size="5" name="estudiantesSeleccionados" required>
+                <option th:each="est : ${estudiantes}" th:value="${est.id}" th:text="${est.nombre}"></option>
+            </select>
+            <small class="form-text text-muted">Mantenga Ctrl o Cmd para seleccionar múltiples estudiantes.</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a class="btn btn-secondary" th:href="@{/clases}">Cancelar</a>
+    </form>
+</div>
+</body>
+</html>
