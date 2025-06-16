@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<html
+    xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
     <title>Servicios</title>
 </head>
 <body>
-<div>
+<div layout:fragment="content">
     <h2>Servicios</h2>
     <p>Ofrecemos clases para todos los niveles, entrenamiento personalizado, campamentos y eventos deportivos.</p>
     <a class="btn btn-secondary" th:href="@{/}">Volver al inicio</a>

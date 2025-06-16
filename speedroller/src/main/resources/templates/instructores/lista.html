@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<html
+    xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head><title>Lista de Instructores</title></head>
 <body>
-<div>
+<div layout:fragment="content">
     <h2>Lista de Instructores</h2>
     <a class="btn btn-primary mb-3" th:href="@{/instructores/nuevo}">Agregar Instructor</a>
     <table class="table table-striped">

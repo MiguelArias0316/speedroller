@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<html
+    xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head><title>Registrar Clase</title></head>
 <body>
-<div>
+<div layout:fragment="content">
     <h2>Registrar Nueva Clase</h2>
     <form th:action="@{/clases/guardar}" th:object="${clase}" method="post">
         <div class="mb-3">
